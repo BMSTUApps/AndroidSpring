@@ -26,4 +26,13 @@ public class MapStairsController {
         return ResponseEntity.status(HttpStatus.CONFLICT).body("Unsuccess");
     }
 
+    @RequestMapping(path = "/map/stairs/getall", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<?> getStairs() {
+        DAOResponse daoResponse = mapStairsDAO.getAllStairs();
+        if (daoResponse.status == HttpStatus.OK) {
+            return ResponseEntity.status(HttpStatus.OK).body(daoResponse.body);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Some error happened");
+    }
+
 }

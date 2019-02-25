@@ -42,7 +42,7 @@ public class MapStairsDAO {
         return result;
     }
 
-    public DAOResponse getRoutesById(Integer id) {
+    public DAOResponse getAllStairs() {
         DAOResponse<List<MapStairs>> result = new DAOResponse<>();
         try {
             result.body =  template.query("SELECT * FROM map_stairs",

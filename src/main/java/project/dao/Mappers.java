@@ -25,7 +25,7 @@ public class Mappers {
     };
 
     public static final RowMapper<MapStairs> mapStairsMapper = (res, num) -> {
-        Integer id = res.getInt("stairs_id");
+        Integer id = res.getInt("id");
         Integer x = res.getInt("x");
         Integer y = res.getInt("y");
         Integer level = res.getInt("level");
