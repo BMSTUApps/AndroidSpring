@@ -20,7 +20,6 @@ public class UsersHistoryController {
     public ResponseEntity<?> insertRoute(@RequestBody UsersHistory body) {
         DAOResponse daoResponse = usersHistoryDAO.insertRoute(body);
         if (daoResponse.status == HttpStatus.OK) {
-//            return ResponseEntity.status(HttpStatus.CREATED).body("Success");
             return ResponseEntity.status(HttpStatus.CREATED).body(daoResponse.body);
 
         }

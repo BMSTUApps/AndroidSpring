@@ -5,13 +5,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Service;
 import project.model.DAOResponse;
-import project.model.User;
 import project.model.UsersHistory;
 
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UsersHistoryDAO {
