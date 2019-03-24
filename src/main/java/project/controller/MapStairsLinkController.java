@@ -17,21 +17,21 @@ public class MapStairsLinkController {
     }
 
     @RequestMapping(path = "/map/links/stairs/insert", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<?> insertStairs(@RequestBody MapStairsLink body) {
+    public ResponseEntity<?> insertStairsLink(@RequestBody MapStairsLink body) {
         DAOResponse daoResponse = mapStairsLinkDAO.insertStairsLink(body);
         if (daoResponse.status == HttpStatus.OK) {
             return ResponseEntity.status(HttpStatus.CREATED).body(daoResponse.body);
         }
 
-        return ResponseEntity.status(HttpStatus.CONFLICT).body("Unsuccess");
+        return ResponseEntity.status(HttpStatus.CONFLICT).body("Unsuccess stair link inset");
     }
 
     @RequestMapping(path = "/map/links/stairs/getall", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<?> getStairs() {
+    public ResponseEntity<?> getStairsLinks() {
         DAOResponse daoResponse = mapStairsLinkDAO.getAllStairsLinks();
         if (daoResponse.status == HttpStatus.OK) {
             return ResponseEntity.status(HttpStatus.OK).body(daoResponse.body);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Some error happened");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Some error happened while getting stairs links");
     }
 }

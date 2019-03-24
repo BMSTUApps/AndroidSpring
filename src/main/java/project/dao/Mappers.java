@@ -34,7 +34,8 @@ public class Mappers {
         return new MapStairs(id, x, y, level, open);
     };
 
-    public static final RowMapper<MapStairsLink> mapStairsLinkMapper = (res, num) -> {
+    // zalupaMapper тк mapStairsLinkMapper не работает !!!!!!!!!!!!!!(минус час жизни)
+    public static final RowMapper<MapStairsLink> zalupaMapper = (res, num) -> {
         Integer id = res.getInt("id");
         Integer idFrom = res.getInt("id_from");
         Integer idTo = res.getInt("id_to");

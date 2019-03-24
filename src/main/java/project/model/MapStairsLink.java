@@ -12,9 +12,9 @@ public class MapStairsLink {
 
     @JsonCreator
     public MapStairsLink(
-            @JsonProperty("id") Integer id,
-            @JsonProperty("idFrom") Integer idFrom,
-            @JsonProperty("idTo") Integer idTo,
+            @JsonProperty("link_id") Integer id,
+            @JsonProperty("id_from") Integer idFrom,
+            @JsonProperty("id_to") Integer idTo,
             @JsonProperty("weight") Integer weight,
             @JsonProperty("open") Boolean open
     ) {

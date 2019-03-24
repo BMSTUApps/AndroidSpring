@@ -23,7 +23,7 @@ public class MapStairsLinkDAO {
         GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
         try {
             template.update(connection -> {
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO  map_stairs_link (id_from, id_to, weight, open) VALUES(?, ?, ?, ?);",
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO map_stairs_link (id_from, id_to, weight, open) VALUES(?, ?, ?, ?);",
                         PreparedStatement.RETURN_GENERATED_KEYS);
                 statement.setInt(1, mapStairsLink.getIdFrom());
                 statement.setInt(2, mapStairsLink.getIdTo());
@@ -31,7 +31,7 @@ public class MapStairsLinkDAO {
                 statement.setBoolean(4, mapStairsLink.getOpen());
 
                 return statement;
-            },keyHolder);
+            }, keyHolder);
             result.body = mapStairsLink;
             result.status = HttpStatus.OK;
         } catch (Exception e) {
@@ -45,8 +45,8 @@ public class MapStairsLinkDAO {
     public DAOResponse getAllStairsLinks() {
         DAOResponse<List<MapStairsLink>> result = new DAOResponse<>();
         try {
-            result.body =  template.query("SELECT * FROM map_stairs_link",
-                    new Object[]{}, Mappers.mapStairsLinkMapper);
+            result.body = template.query("SELECT * FROM map_stairs_link",
+                    new Object[]{}, Mappers.zalupaMapper);
             result.status = HttpStatus.OK;
         } catch (Exception e) {
             e.printStackTrace();

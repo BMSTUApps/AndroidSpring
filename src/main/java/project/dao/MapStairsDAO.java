@@ -31,7 +31,7 @@ public class MapStairsDAO {
                 statement.setBoolean(4, mapStairs.getOpen());
 
                 return statement;
-            },keyHolder);
+            }, keyHolder);
             result.body = mapStairs;
             result.status = HttpStatus.OK;
         } catch (Exception e) {
@@ -45,7 +45,7 @@ public class MapStairsDAO {
     public DAOResponse getAllStairs() {
         DAOResponse<List<MapStairs>> result = new DAOResponse<>();
         try {
-            result.body =  template.query("SELECT * FROM map_stairs",
+            result.body = template.query("SELECT * FROM map_stairs",
                     new Object[]{}, Mappers.mapStairsMapper);
             result.status = HttpStatus.OK;
         } catch (Exception e) {
