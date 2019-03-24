@@ -2,6 +2,7 @@ package project.dao;
 
 import org.springframework.jdbc.core.RowMapper;
 import project.model.MapStairs;
+import project.model.MapStairsLink;
 import project.model.User;
 import project.model.UsersHistory;
 
@@ -31,5 +32,14 @@ public class Mappers {
         Integer level = res.getInt("level");
         Boolean open = res.getBoolean("open");
         return new MapStairs(id, x, y, level, open);
+    };
+
+    public static final RowMapper<MapStairsLink> mapStairsLinkMapper = (res, num) -> {
+        Integer id = res.getInt("id");
+        Integer idFrom = res.getInt("id_from");
+        Integer idTo = res.getInt("id_to");
+        Integer weight = res.getInt("weight");
+        Boolean open = res.getBoolean("open");
+        return new MapStairsLink(id, idFrom, idTo, weight, open);
     };
 }
