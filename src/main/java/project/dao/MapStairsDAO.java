@@ -23,12 +23,13 @@ public class MapStairsDAO {
         GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
         try {
             template.update(connection -> {
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO  map_stairs (x, y, level, open) VALUES(?, ?, ?, ?);",
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO  map_stairs (x, y, level, open, linked_id) VALUES(?, ?, ?, ?, ?);",
                         PreparedStatement.RETURN_GENERATED_KEYS);
                 statement.setInt(1, mapStairs.getX());
                 statement.setInt(2, mapStairs.getY());
                 statement.setInt(3, mapStairs.getLevel());
                 statement.setBoolean(4, mapStairs.getOpen());
+                statement.setInt(5, mapStairs.getLinkedId());
 
                 return statement;
             },keyHolder);

@@ -9,6 +9,7 @@ public class MapStairs {
     private Integer y;
     private Integer level;
     private Boolean open;
+    private Integer linkedId;
     // TODO(): если расширять возможности, то добавить айди здания (влом)
 
     @JsonCreator
@@ -17,13 +18,15 @@ public class MapStairs {
             @JsonProperty("x") Integer x,
             @JsonProperty("y") Integer y,
             @JsonProperty("level") Integer level,
-            @JsonProperty("open") Boolean open
+            @JsonProperty("open") Boolean open,
+            @JsonProperty("linked_id") Integer linkedId
     ) {
         this.id = id;
         this.x = x;
         this.y = y;
         this.level = level;
         this.open = open;
+        this.linkedId = linkedId;
     }
 
     public MapStairs() {
@@ -32,6 +35,7 @@ public class MapStairs {
         this.y = 0;
         this.level = 0;
         this.open = false;
+        this.linkedId = -1;
     }
 
     public void setId(Integer id) {
@@ -54,6 +58,10 @@ public class MapStairs {
         this.open = open;
     }
 
+    public void setLinkedId(Integer linkedId) {
+        this.linkedId = linkedId;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -72,5 +80,9 @@ public class MapStairs {
 
     public Boolean getOpen() {
         return open;
+    }
+
+    public Integer getLinkedId() {
+        return linkedId;
     }
 }

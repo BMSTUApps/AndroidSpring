@@ -30,6 +30,7 @@ public class Mappers {
         Integer y = res.getInt("y");
         Integer level = res.getInt("level");
         Boolean open = res.getBoolean("open");
-        return new MapStairs(id, x, y, level, open);
+        Integer link = res.getInt("linked_id");
+        return new MapStairs(id, x, y, level, open, link);
     };
 }
