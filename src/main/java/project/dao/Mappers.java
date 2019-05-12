@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.RowMapper;
 import project.model.*;
 
 import java.sql.Array;
+import java.sql.Date;
 
 public class Mappers {
 
@@ -54,5 +55,14 @@ public class Mappers {
         Integer y_s = res.getInt("y_second");
 
         return new MapWall(id, level, x_f, y_f, x_s, y_s);
+    };
+
+    public static final RowMapper<News> newsMapper = (res, num) -> {
+        Integer id = res.getInt("id");
+        String title = res.getString("title");
+        Date time = res.getDate("time");
+        String payload = res.getString("payload");
+
+        return new News(id, title, time, payload);
     };
 }
