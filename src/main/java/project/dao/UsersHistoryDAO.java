@@ -26,8 +26,8 @@ public class UsersHistoryDAO {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO  users_history (user_id, point_from, point_to) VALUES(?, ?, ?);",
                         PreparedStatement.RETURN_GENERATED_KEYS);
                 statement.setInt(1, usersHistory.getUser_id());
-                statement.setInt(2, usersHistory.getPoint_from());
-                statement.setInt(3, usersHistory.getPoint_to());
+                statement.setString(2, usersHistory.getPoint_from());
+                statement.setString(3, usersHistory.getPoint_to());
 
                 return statement;
             },keyHolder);

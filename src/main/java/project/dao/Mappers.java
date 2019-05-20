@@ -19,8 +19,8 @@ public class Mappers {
     public static final RowMapper<UsersHistory> userHistoryMapper = (res, num) -> {
         Integer id = res.getInt("id");
         Integer user_id = res.getInt("user_id");
-        Integer point_from = res.getInt("point_from");
-        Integer point_to = res.getInt("point_to");
+        String point_from = res.getString("point_from");
+        String point_to = res.getString("point_to");
 
         return new UsersHistory(id, user_id, point_from, point_to);
     };
